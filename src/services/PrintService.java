@@ -19,13 +19,19 @@ public class PrintService<T> {
 	}
 	
 	public void print() {
+		if (list.isEmpty()) {
+			throw new IllegalStateException("List is empty");
+		}
 		System.out.print("[");
-		if (!list.isEmpty()) {
-			System.out.print(list.get(0));
+		for (int i = 0; i < list.size(); i++) {
+			if (i < list.size() - 1) {
+				System.out.print(list.get(i) + ", ");
+			}
+			else {
+				System.out.print(list.get(i));
+			}			
 		}
-		for (int i = 1; i < list.size(); i++) {
-			System.out.print(", " + list.get(i));
-		}
-		System.out.println("]");
+		System.out.print("]");
+		System.out.println();
 	}
 }

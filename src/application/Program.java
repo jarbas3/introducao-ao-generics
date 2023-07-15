@@ -15,13 +15,19 @@ public class Program {
 		System.out.print("How many values? ");
 		int n = sc.nextInt();
 		
-		for (int i = 0; i < n ; i++) {
-			String value = sc.next();
-			ps.addValue(value);
+		try {		
+			for (int i = 0; i < n ; i++) {
+				String value = sc.next();
+				ps.addValue(value);
+			}
+			
+			ps.print();		
+			System.out.println("First: " + ps.first());	
+			
+			}
+		catch (IllegalStateException e) {
+			System.out.println(e.getMessage());
 		}
-		
-		ps.print();		
-		System.out.println("First: " + ps.first());	
 		
 		sc.close();
 	}
